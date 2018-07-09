@@ -21,6 +21,40 @@
 <meta http-equiv="Content-Language" content="ko" >
 <title>표준프레임워크 경량환경 홈페이지 템플릿</title>
 <link href="<c:url value='/'/>css/common.css" rel="stylesheet" type="text/css" >
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script> 
+var sImgAry = new Array(); 
+sImgAry[0] = "<c:url value='/images/index/100.PNG' />"; 
+sImgAry[1] = "<c:url value='/images/index/200.PNG' />"; 
+sImgAry[2] = "<c:url value='/images/index/300.PNG' />"; 
+var sImgNo = 0; 
+var xImgNo = 1; 
+function changeImg() { 
+	$( "#sImg" ).animate({ 
+		opacity: 0.1, 
+		height: "0" 
+	}, 2000, function() { 
+		sImgNo++; 
+		if(sImgNo > sImgAry.length-1) sImgNo = 0; 
+		$("#sImg").attr("src", sImgAry[sImgNo]); 
+		$("#sImg").height("370px"); 
+		$("#sImg").css("opacity", "1.0"); 
+		setTimeout(changeImg, 2000); 
+	}); 
+	$( "#xImg" ).animate({ 
+		opacity: 1.0, 
+		marginTop: "0px", 
+		height: "370px" 
+	}, 2000, function() { 
+		xImgNo++; 
+		if(xImgNo > sImgAry.length-1) xImgNo = 0; 
+		$("#xImg").attr("src", sImgAry[xImgNo]); 
+		$("#xImg").height("0px"); 
+		$("#xImg").css("opacity", "0.1"); 
+		$("#xImg").css("margin-top", "370px"); 
+	}); 
+} 
+</script>
 </head>
 <body>
 <noscript>자바스크립트를 지원하지 않는 브라우저에서는 일부 기능을 사용하실 수 없습니다.</noscript>	
@@ -37,10 +71,21 @@
 	<!-- //header 끝 -->
 	<!-- container 시작 -->
 	<div id="main_container">
-		<div class="lefttitle_image">
-		    <img src="<c:url value='/images/index/main_titleimage.gif' />" 
-		         alt="경량환경 내부업무 홈페이지/전자정부 표준프레임워크의 경량환경 내부 업무에 대한 최신정보와 기술을 제공하고 있습니다." />
+		<!-- <div class="lefttitle_image">	 -->
+		<%-- <div style="position:relative;"class="lefttitle_image" onclick="changeImg()">
+			   <div > <img id="sImg" src="<c:url value='/images/index/100.PNG' />" </div>
+			   <div> <img id="xImg" src="<c:url value='/images/index/200.PNG' />" </div>
+			   <div style="position:absolute;"> <img src="<c:url value='/images/index/300.PNG' />" </div>     
+		</div> --%>
+		<div class="lefttitle_image" position:relative;" onclick="changeImg()"> 
+			<div style="position:absolute;">
+				<img id="sImg" src="<c:url value='/images/index/100.PNG' />" style="width:392px;height:370px;"/>
+			</div> 
+			<div style="position:absolute;">
+				<img id="xImg" src="<c:url value='/images/index/200.PNG' />" style="width:392px;height:0;opacity:0.1;margin-top:370px;"/>
+			</div> 
 		</div>
+		
 		
 		<!-- code layer -->
 		<div class="rightmain_wrap">			
