@@ -33,10 +33,16 @@ String menuNo = ((String)session.getAttribute("menuNo")!=null)?(String)session.g
 		<% } %>
 		<% if (menuNo.indexOf("2")== 0) {%>
 		<li class="leftmenu_dept01">
-			<a href="javascript:fn_main_headPageMove('21','main/sample_menu/EgovProductInfo')">정보마당</a>
+			<a href="javascript:fn_main_headPageMove('21','main/sample_menu/EgovProductInfo')"><div style="text-align:center">8체질</div></a>
 			<ul>	
-				<li class="dept02"><a href="javascript:fn_main_headPageMove('21','main/sample_menu/EgovProductInfo')">주요사업 소개</a></li>
-				<li class="dept02"><a href="javascript:fn_main_headPageMove('22','main/sample_menu/EgovServiceInfo')">대표서비스 소개</a></li>
+				<li class="dept02"><a href="javascript:fn_main_headPageMove('21','main/sample_menu/EgovProductInfo')">금양체질</a></li>
+				<li class="dept02"><a href="javascript:fn_main_headPageMove('22','main/sample_menu/EgovServiceInfo')">금음체질</a></li>
+				<li class="dept02"><a href="javascript:fn_main_headPageMove('23','main/sample_menu/EgovServiceInfo')">토양체질</a></li>
+				<li class="dept02"><a href="javascript:fn_main_headPageMove('24','main/sample_menu/EgovServiceInfo')">토음체질</a></li>
+				<li class="dept02"><a href="javascript:fn_main_headPageMove('25','main/sample_menu/EgovServiceInfo')">목양체질</a></li>
+				<li class="dept02"><a href="javascript:fn_main_headPageMove('26','main/sample_menu/EgovServiceInfo')">목음체질</a></li>
+				<li class="dept02"><a href="javascript:fn_main_headPageMove('27','main/sample_menu/EgovServiceInfo')">수양체질</a></li>
+				<li class="dept02"><a href="javascript:fn_main_headPageMove('28','main/sample_menu/EgovServiceInfo')">수음체질</a></li>
 			</ul> 
 		</li>
 		<% } %>

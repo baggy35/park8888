@@ -21,16 +21,16 @@
     </dl>
 </div>
 <!-- 행정안전부 로고 및 타이틀 시작 -->
-<div id="logoarea">
+<%-- <div id="logoarea">
     <h1><a href="<c:url value='/cmm/main/mainPage.do' />"><img src="<c:url value='/images/header/logo.jpg' />" alt="템플릿 샘플 홈페이지" height="30" /></a></h1>
-</div>
+</div> --%>
 <!-- 
 <div id="nia_logo">
     <img src="<c:url value='/images/header/limg_lt_nia_logo.gif' />" alt="NIA한국정보화진흥원" />
 </div>
  -->
-<div id="project_title"><span class="maintitle">표준프레임워크 </span><strong>샘플 홈페이지 </strong>
-<a href="<c:url value='/EgovPageLink.do?link=main/sample_menu/Intro'/>" target="_blank"><img width="20" height="20" src="<c:url value='/images/question.jpg'/>" alt="메뉴구성 설명" title="메뉴구성 설명"></a>
+<div id="project_title"style="text-align:center"><span style="font-weigh:bold; font-size:3.0em; color;#808000;">버섯광장 </span>
+<%-- <a href="<c:url value='/EgovPageLink.do?link=main/sample_menu/Intro'/>" target="_blank"><img width="20" height="20" src="<c:url value='/images/question.jpg'/>" alt="메뉴구성 설명" title="메뉴구성 설명"></a> --%>
 </div>
 <!-- //행정안전부 로고 및 타이틀 끝 -->
 <div class="header_login">
