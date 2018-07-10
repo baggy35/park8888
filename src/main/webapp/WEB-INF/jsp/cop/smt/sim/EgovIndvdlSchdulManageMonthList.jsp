@@ -53,7 +53,13 @@ int newLine = 0;
 <head>
 <meta http-equiv="Content-Language" content="ko" >
 <title>일정 월별 목록</title>
+
 <link href="<c:url value='/'/>css/common.css" rel="stylesheet" type="text/css" >
+
+
+
+
+
 
     <script type="text/javaScript" language="javascript">
 
@@ -228,7 +234,7 @@ A:hover { font-size:9pt; font-family:"돋움";color:red;text-decoration:none;}
 					    <!-- table add start -->
 						<table border="0" cellspacing="1" cellpadding="1" bgcolor="#FFFFFF">
 						<THEAD>
-						<TR bgcolor="#CECECE">
+						<TR bgcolor="ffe6e6">
 						    <TD width='100' height='23'>
 						    <DIV align="center"><font color="red">일</font></DIV>
 						    </TD>
@@ -278,7 +284,7 @@ A:hover { font-size:9pt; font-family:"돋움";color:red;text-decoration:none;}
 						    
 						    int iUseDate = Integer.parseInt(sUseDate);
 						
-						    out.println("<TD valign='top' align='left' height='92' bgcolor='#EFEFEF' >");
+						    out.println("<TD valign='top' align='left' height='92'>");
 						    out.println("<font color='"+color+"'><a href=\"EgovIndvdlSchdulManageRegist.do?schdulBgnde="+iUseDate+"&amp;schdulEndde="+iUseDate+"\" target=\"_top\">"+index+"</a></font>");
 						    out.println("<BR>");
 						    
