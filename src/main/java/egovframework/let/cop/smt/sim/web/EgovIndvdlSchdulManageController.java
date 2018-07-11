@@ -16,7 +16,8 @@ import egovframework.com.cmm.service.FileVO;
 import egovframework.com.cmm.util.EgovUserDetailsHelper;
 import egovframework.let.cop.smt.sim.service.EgovIndvdlSchdulManageService;
 import egovframework.let.cop.smt.sim.service.IndvdlSchdulManageVO;
-
+import egovframework.park.ParkManaeVO;
+import egovframework.park.service.ParkManageService;
 import egovframework.rte.fdl.cmmn.exception.EgovBizException;
 import egovframework.rte.fdl.property.EgovPropertyService;
 
@@ -54,6 +55,9 @@ public class EgovIndvdlSchdulManageController {
 
 	@Autowired
 	private DefaultBeanValidator beanValidator;
+	
+	@Resource(name="parkManageService")
+	ParkManageService parkManageService;
 
 	/** EgovMessageSource */
     @Resource(name="egovMessageSource")
@@ -610,6 +614,107 @@ public class EgovIndvdlSchdulManageController {
     	return sLocationUrl;
 
 	}
+	//내가한 것
+	@RequestMapping(value="/cop/smt/sim/ParkManageRegist.do")
+	public String ParkManageRegist(
+			@ModelAttribute("searchVO") ComDefaultVO searchVO,
+			@RequestParam Map <String, Object> commandMap,
+			@ModelAttribute("indvdlSchdulManageVO") ParkManaeVO parkManageVO,
+			BindingResult bindingResult,
+    		ModelMap model,
+    		HttpServletRequest request)
+    throws Exception {
+
+		if (!checkAuthority(model)) return "cmm/uat/uia/EgovLoginUsr";	// server-side 권한 확인
+
+		String sLocationUrl = "/park/ParkManageRegist";
+
+     	//공통코드  중요도 조회
+    	ComDefaultCodeVO voComCode = new ComDefaultCodeVO();
+    	voComCode.setCodeId("COM019");
+    	model.addAttribute("schdulIpcrCode", cmmUseService.selectCmmCodeDetail(voComCode));
+    	//공통코드  일정구분 조회
+    	voComCode = new ComDefaultCodeVO();
+    	voComCode.setCodeId("COM030");
+    	model.addAttribute("schdulSe", cmmUseService.selectCmmCodeDetail(voComCode));
+    	//공통코드  반복구분 조회
+    	voComCode = new ComDefaultCodeVO();
+    	voComCode.setCodeId("COM031");
+    	model.addAttribute("reptitSeCode", cmmUseService.selectCmmCodeDetail(voComCode));
+
+    	//일정시작일자(시)
+    	model.addAttribute("schdulBgndeHH", getTimeHH());
+    	//일정시작일자(분)
+    	model.addAttribute("schdulBgndeMM", getTimeMM());
+    	//일정종료일자(시)
+    	model.addAttribute("schdulEnddeHH", getTimeHH());
+    	//일정정료일자(분)
+    	model.addAttribute("schdulEnddeMM", getTimeMM());
+
+    	//팝업정보창 사용하여 셋팅하지 않고 고정하여 설정함(템플릿에서 기능 축소)
+    	/*parkManageVO.setSchdulDeptName("관리자부서");
+    	parkManageVO.setSchdulDeptId("ORGNZT_0000000000000");
+    	parkManageVO.setSchdulChargerName("관리자");
+    	parkManageVO.setSchdulChargerId("USRCNFRM_00000000000");
+*/
+    	return sLocationUrl;
+
+	}
+	//내가한것
+	@RequestMapping(value="/cop/smt/sim/ParkManageRegistActor.do")
+	public String ParkManageRegistActor(
+			final MultipartHttpServletRequest multiRequest,
+			@ModelAttribute("searchVO") ComDefaultVO searchVO,
+			@RequestParam Map <String, Object> commandMap,
+			@ModelAttribute("indvdlSchdulManageVO") ParkManaeVO parkManaeVO,
+			BindingResult bindingResult,
+    		ModelMap model,
+    		HttpServletRequest request)
+    throws Exception {
+
+		if (!checkAuthority(model)) return "cmm/uat/uia/EgovLoginUsr";	// server-side 권한 확인
+
+    	LoginVO user = (LoginVO)request.getSession().getAttribute("LoginVO");
+
+		String sLocationUrl = "/cop/smt/sim/EgovIndvdlSchdulManageRegist";
+
+		String sCmd = commandMap.get("cmd") == null ? "" : (String)commandMap.get("cmd");
+		//log.info("cmd =>" + sCmd);
+
+        if(sCmd.equals("save")){
+    		//서버  validate 체크
+            beanValidator.validate(parkManaeVO, bindingResult);
+    		if(bindingResult.hasErrors()){
+
+    			return sLocationUrl;
+    		}
+
+        	// 첨부파일 관련 첨부파일ID 생성
+    		List<FileVO> _result = null;
+    		String _atchFileId = "";
+
+    		final Map<String, MultipartFile> files = multiRequest.getFileMap();
+
+    		if(!files.isEmpty()){
+    		 _result = fileUtil.parseFileInf(files, "DSCH_", 0, "", "");
+    		 _atchFileId = fileMngService.insertFileInfs(_result);  //파일이 생성되고나면 생성된 첨부파일 ID를 리턴한다.
+    		}
+
+        	// 리턴받은 첨부파일ID를 셋팅한다..
+    		parkManaeVO.setAtchFileId(_atchFileId);			// 첨부파일 ID
+
+    		//아이디 설정
+    		parkManaeVO.setFrstRegisterId(user.getUniqId());
+    		parkManaeVO.setLastUpdusrId(user.getUniqId());
+
+    		parkManageService.insertParkManage(parkManaeVO);
+        	sLocationUrl = "redirect:/cop/smt/sim/EgovIndvdlSchdulManageMonthList.do";
+        }
+
+        return sLocationUrl;
+
+
+	}
 
 	/**
 	 * 일정를 등록 처리 한다.
@@ -676,6 +781,8 @@ public class EgovIndvdlSchdulManageController {
 
 
 	}
+	
+	
 	/**
 	 * 시간을 LIST를 반환한다.
 	 * @return  List

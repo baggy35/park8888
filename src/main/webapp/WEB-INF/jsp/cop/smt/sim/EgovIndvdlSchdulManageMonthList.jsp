@@ -285,7 +285,7 @@ A:hover { font-size:9pt; font-family:"돋움";color:red;text-decoration:none;}
 						    int iUseDate = Integer.parseInt(sUseDate);
 						
 						    out.println("<TD valign='top' align='left' height='92'>");
-						    out.println("<font color='"+color+"'><a href=\"EgovIndvdlSchdulManageRegist.do?schdulBgnde="+iUseDate+"&amp;schdulEndde="+iUseDate+"\" target=\"_top\">"+index+"</a></font>");
+						    out.println("<font color='"+color+"'><a href=\"ParkManageRegist.do?schdulBgnde="+iUseDate+"&amp;schdulEndde="+iUseDate+"\" target=\"_top\">"+index+"</a></font>");
 						    out.println("<BR>");
 						    
 						    if(listResult != null){
