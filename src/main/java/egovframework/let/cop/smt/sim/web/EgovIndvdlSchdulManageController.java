@@ -5,22 +5,6 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
-import egovframework.com.cmm.ComDefaultCodeVO;
-import egovframework.com.cmm.ComDefaultVO;
-import egovframework.com.cmm.EgovMessageSource;
-import egovframework.com.cmm.LoginVO;
-import egovframework.com.cmm.service.EgovCmmUseService;
-import egovframework.com.cmm.service.EgovFileMngService;
-import egovframework.com.cmm.service.EgovFileMngUtil;
-import egovframework.com.cmm.service.FileVO;
-import egovframework.com.cmm.util.EgovUserDetailsHelper;
-import egovframework.let.cop.smt.sim.service.EgovIndvdlSchdulManageService;
-import egovframework.let.cop.smt.sim.service.IndvdlSchdulManageVO;
-import egovframework.park.ParkManaeVO;
-import egovframework.park.service.ParkManageService;
-import egovframework.rte.fdl.cmmn.exception.EgovBizException;
-import egovframework.rte.fdl.property.EgovPropertyService;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
@@ -34,6 +18,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springmodules.validation.commons.DefaultBeanValidator;
+
+import egovframework.com.cmm.ComDefaultCodeVO;
+import egovframework.com.cmm.ComDefaultVO;
+import egovframework.com.cmm.EgovMessageSource;
+import egovframework.com.cmm.LoginVO;
+import egovframework.com.cmm.service.EgovCmmUseService;
+import egovframework.com.cmm.service.EgovFileMngService;
+import egovframework.com.cmm.service.EgovFileMngUtil;
+import egovframework.com.cmm.service.FileVO;
+import egovframework.com.cmm.util.EgovUserDetailsHelper;
+import egovframework.let.cop.smt.sim.service.EgovIndvdlSchdulManageService;
+import egovframework.let.cop.smt.sim.service.IndvdlSchdulManageVO;
+import egovframework.let.park.service.ParkManaeVO;
+import egovframework.let.park.service.ParkManageService;
+import egovframework.rte.fdl.cmmn.exception.EgovBizException;
+import egovframework.rte.fdl.property.EgovPropertyService;
 
 /**
  * 일정관리를 처리하는 Controller Class 구현
@@ -615,7 +615,7 @@ public class EgovIndvdlSchdulManageController {
 
 	}
 	//내가한 것
-	@RequestMapping(value="/cop/smt/sim/ParkManageRegist.do")
+	/*@RequestMapping(value="/cop/smt/sim/ParkManageRegist.do")
 	public String ParkManageRegist(
 			@ModelAttribute("searchVO") ComDefaultVO searchVO,
 			@RequestParam Map <String, Object> commandMap,
@@ -652,11 +652,11 @@ public class EgovIndvdlSchdulManageController {
     	model.addAttribute("schdulEnddeMM", getTimeMM());
 
     	//팝업정보창 사용하여 셋팅하지 않고 고정하여 설정함(템플릿에서 기능 축소)
-    	/*parkManageVO.setSchdulDeptName("관리자부서");
+    	parkManageVO.setSchdulDeptName("관리자부서");
     	parkManageVO.setSchdulDeptId("ORGNZT_0000000000000");
     	parkManageVO.setSchdulChargerName("관리자");
     	parkManageVO.setSchdulChargerId("USRCNFRM_00000000000");
-*/
+
     	return sLocationUrl;
 
 	}
@@ -714,7 +714,7 @@ public class EgovIndvdlSchdulManageController {
         return sLocationUrl;
 
 
-	}
+	}*/
 
 	/**
 	 * 일정를 등록 처리 한다.
