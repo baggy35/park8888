@@ -289,7 +289,7 @@ public class EgovIndvdlSchdulManageController {
 	public String EgovIndvdlSchdulManageMonthList(
 			@ModelAttribute("searchVO") ComDefaultVO searchVO,
 			@RequestParam Map <String, Object> commandMap,
-			IndvdlSchdulManageVO indvdlSchdulManageVO,
+			ParkManaeVO parkManaeVO,
     		ModelMap model)
     throws Exception {
 
@@ -334,6 +334,7 @@ public class EgovIndvdlSchdulManageController {
 
 		return "/cop/smt/sim/EgovIndvdlSchdulManageMonthList";
 	}
+
 
 	/**
 	 * 일정 목록을 상세조회 조회한다.
@@ -676,7 +677,7 @@ public class EgovIndvdlSchdulManageController {
 
     	LoginVO user = (LoginVO)request.getSession().getAttribute("LoginVO");
 
-		String sLocationUrl = "/cop/smt/sim/EgovIndvdlSchdulManageRegist";
+		String sLocationUrl = "/park/ParkManageRegist";
 
 		String sCmd = commandMap.get("cmd") == null ? "" : (String)commandMap.get("cmd");
 		//log.info("cmd =>" + sCmd);
