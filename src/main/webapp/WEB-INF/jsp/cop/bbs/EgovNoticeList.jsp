@@ -23,11 +23,35 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <meta http-equiv="content-language" content="ko">
-<link href="<c:url value='/'/>css/common.css" rel="stylesheet" type="text/css" >
+
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.material.min.css">
+<link href="<c:url value='/'/>css/common.css" rel="stylesheet" type="text/css" >	
+
+
+<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.material.min.js"></script>
+
 <c:if test="${anonymous == 'true'}"><c:set var="prefix" value="/anonymous"/></c:if>
 <script type="text/javascript" src="<c:url value='/js/EgovBBSMng.js' />" ></script>
 <c:choose>
 <c:when test="${preview == 'true'}">
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#example').DataTable( {
+        columnDefs: [
+            {
+                targets: [ 0, 1, 2 ],
+                className: 'mdl-data-table__cell--non-numeric'
+            }
+        ]
+    } );
+} );
+</script>
+
+
 <script type="text/javascript">
 <!--
     function press(event) {
@@ -154,9 +178,9 @@
                 <div id="page_info"><div id="page_info_align"></div></div>                    
                  -->
                 <!-- table add start -->
-                <div class="default_tablestyle">
-                    <table summary="번호, 제목, 게시시작일, 게시종료일, 작성자, 작성일, 조회수   입니다" cellpadding="0" cellspacing="0">
-                    <caption>게시물 목록</caption>
+                <div>
+                    <table id="example" class="mdl-data-table" style="width:100%" summary="번호, 제목, 게시시작일, 게시종료일, 작성자, 작성일, 조회수   입니다" cellpadding="0" cellspacing="0">
+                    <%-- <caption>게시물 목록</caption>
                     <colgroup>
                     <col width="10%">
                     <col>  
@@ -169,7 +193,7 @@
                     </c:if>
                     <col width="15%">
                     <col width="8%">
-                    </colgroup>
+                    </colgroup> --%>
                     <thead>
                     <tr>
                         <th scope="col" class="f_field" nowrap="nowrap">번호</th>
@@ -211,7 +235,7 @@
 				                        <input type="hidden" name="bbsAttrbCode" value="<c:out value='${brdMstrVO.bbsAttrbCode}'/>" />
 				                        <input type="hidden" name="authFlag" value="<c:out value='${brdMstrVO.authFlag}'/>" />
 				                        <input name="pageIndex" type="hidden" value="<c:out value='${searchVO.pageIndex}'/>"/>
-				                        <span class="link"><input type="submit" style="width:320px;border:solid 0px black;text-align:left;" value="<c:out value="${result.nttSj}"/>" ></span>
+				                        <span class="link"><input type="submit" style="width:320px;border:none;text-align:left;" value="<c:out value="${result.nttSj}"/>" ></span>
 				                </c:otherwise>
 				            </c:choose>
 				            </form>
