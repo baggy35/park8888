@@ -422,7 +422,8 @@ select {
 .lefttitle_image{float:left;padding-top:9px;padding-left:9px;width:439px;height:480px;}
 .rightmain_wrap{float:left;width:722px;padding-left:20px;}
 .board_wrap{float:left;padding-top:0;padding-left:10px;}
-.notice_area{float:left;width:384px;height:170px; vertical-align:middle;}
+.notice_area{float:right;width:384px;height:170px; vertical-align:middle;}
+.ppparea{float:right;width:650px;height:300px;margin-top:10px; margin-left:20px; vertical-align:middle;}
 .notice_area h3{border-bottom:1px solid #dddddd;padding:3px;}
 .notice_area ul{list-style-type:none; clear: both;} 
 .notice_area ul li{display:block; height:21px;}  

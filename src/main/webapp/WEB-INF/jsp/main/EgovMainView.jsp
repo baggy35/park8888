@@ -86,10 +86,10 @@ function changeImg() {
 		</div> --%>
 		<div class="lefttitle_image" position:relative;" onclick="changeImg()"> 
 			<div style="position:absolute;">
-				<img id="sImg" src="<c:url value='/images/index/100.PNG' />" style="width:392px;height:370px;"/>
+				<img id="sImg" src="<c:url value='/images/index/100.PNG' />" style="width:520px;height:370px;"/>
 			</div> 
 			<div style="position:absolute;">
-				<img id="xImg" src="<c:url value='/images/index/200.PNG' />" style="width:392px;height:0;opacity:0.1;margin-top:370px;"/>
+				<img id="xImg" src="<c:url value='/images/index/200.PNG' />" style="width:520px;height:0;opacity:0.1;margin-top:370px;"/>
 			</div> 
 		</div>
 		
@@ -99,9 +99,20 @@ function changeImg() {
 			<div class="board_wrap">
 				<!-- 공지사항 시작 -->
 				<div class="notice_area">
-    				<!-- //공지사항 끝 -->
-    				
-    				
+    				<div class="ppparea"> 
+						<div class="parkfirst"><a href="#" onclick="javascript:fn_main_headPageMove('21','main/sample_menu/EgovProductInfo'); return false;"><img src="<c:url value='/images/index/777.png' />" /></a></div>
+						<div class="parkfirst"><a href="#" onclick="javascript:fn_main_headPageMove('21','main/sample_menu/EgovProductInfo'); return false;"><img src="<c:url value='/images/index/778.png' />" /></a></div>
+						<div class="parkfirst"><a href="#" onclick="javascript:fn_main_headPageMove('21','main/sample_menu/EgovProductInfo'); return false;"><img src="<c:url value='/images/index/779.png' />" /></a></div>
+						<div class="parkfirst"><a href="#" onclick="javascript:fn_main_headPageMove('21','main/sample_menu/EgovProductInfo'); return false;"><img src="<c:url value='/images/index/800.png' />" /></a></div>
+				
+						<div style="clear:both;"></div>
+						
+						<div class="parkfirst"><a href="#" onclick="javascript:fn_main_headPageMove('21','main/sample_menu/EgovProductInfo'); return false;"><img src="<c:url value='/images/index/888.png' />" /></a></div>
+						<div class="parkfirst"><a href="#" onclick="javascript:fn_main_headPageMove('21','main/sample_menu/EgovProductInfo'); return false;"><img src="<c:url value='/images/index/900.png' />" /></a></div>
+						<div class="parkfirst"><a href="#" onclick="javascript:fn_main_headPageMove('21','main/sample_menu/EgovProductInfo'); return false;"><img src="<c:url value='/images/index/911.png' />" /></a></div>
+						<div class="parkfirst"><a href="#" onclick="javascript:fn_main_headPageMove('21','main/sample_menu/EgovProductInfo'); return false;"><img src="<c:url value='/images/index/999.png' />" /></a></div>
+					</div>
+    			</div>	
     				<!-- 갤러리 시작 -->
     				<div class="notice_area">
     					<h3 class="notice_title"><img src="<c:url value='/images/index/img_subtitle02.gif' />" alt="갤러리" /></h3> 
@@ -134,37 +145,17 @@ function changeImg() {
     					</ul>
 							
     				</div>
-				</div>
+    				
+				
 				<!--  //갤러리 끝 -->			
-						<div id="parkid"> 
-								
-									<div class="parkfirst"><a href="#" onclick="javascript:fn_main_headPageMove('21','main/sample_menu/EgovProductInfo'); return false;"><img src="<c:url value='/images/index/777.png' />" /></a></div>
-									<div class="parkfirst"><a href="#" onclick="javascript:fn_main_headPageMove('21','main/sample_menu/EgovProductInfo'); return false;"><img src="<c:url value='/images/index/778.png' />" /></a></div>
-								
-									<div style="clear:both;"></div>
-
-									<div class="parkfirst"><a href="#" onclick="javascript:fn_main_headPageMove('21','main/sample_menu/EgovProductInfo'); return false;"><img src="<c:url value='/images/index/779.png' />" /></a></div>
-									<div class="parkfirst"><a href="#" onclick="javascript:fn_main_headPageMove('21','main/sample_menu/EgovProductInfo'); return false;"><img src="<c:url value='/images/index/800.png' />" /></a></div>
-							
-									<div style="clear:both;"></div>
-									
-									<div class="parkfirst"><a href="#" onclick="javascript:fn_main_headPageMove('21','main/sample_menu/EgovProductInfo'); return false;"><img src="<c:url value='/images/index/888.png' />" /></a></div>
-									<div class="parkfirst"><a href="#" onclick="javascript:fn_main_headPageMove('21','main/sample_menu/EgovProductInfo'); return false;"><img src="<c:url value='/images/index/900.png' />" /></a></div>
-							
-									<div style="clear:both;"></div>
-									
-									<div class="parkfirst"><a href="#" onclick="javascript:fn_main_headPageMove('21','main/sample_menu/EgovProductInfo'); return false;"><img src="<c:url value='/images/index/888.png' />" /></a></div>
-									<div class="parkfirst"><a href="#" onclick="javascript:fn_main_headPageMove('21','main/sample_menu/EgovProductInfo'); return false;"><img src="<c:url value='/images/index/900.png' />" /></a></div>
-									
-									<div style="clear:both;"></div>
-									
-									<div class="parkfirst"><a href="#" onclick="javascript:fn_main_headPageMove('21','main/sample_menu/EgovProductInfo'); return false;"><img src="<c:url value='/images/index/911.png' />" /></a></div>
-									<div class="parkfirst"><a href="#" onclick="javascript:fn_main_headPageMove('21','main/sample_menu/EgovProductInfo'); return false;"><img src="<c:url value='/images/index/999.png' />" /></a></div>
-							</div>
+						
 			</div>
+			
 		</div>
-		<!-- //code layer -->		
+		<!-- //code layer -->
+				
 	</div>
+	
 	<!-- footer 시작 -->
 	<div id="footer"><c:import url="/EgovPageLink.do?link=main/inc/EgovIncFooter" /></div>
 	<!-- //footer 끝 -->
